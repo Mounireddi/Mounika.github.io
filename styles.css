@@ -1,0 +1,588 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe4b5;
+    color: black;
+    transition: background-color 0.5s ease;
+}
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/Main page.png') center/cover no-repeat;
+    object-fit: cover;
+    filter: brightness(50%);
+    z-index: -1; /* Keeps it behind the content */
+}
+/* for html */
+html {
+    scroll-behavior: smooth;
+}
+.scrolling-text {
+    display: inline-block;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 100%;
+    animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+
+.logo {
+    position: absolute; /* Fix position */
+    top: 50px; /* Adjust top margin */
+    left: 50px; /* Adjust left margin */
+    width: 100px; /* Adjust size */
+}
+
+.logo img {
+    width: 100%; /* Make it responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Home Section */
+/* Background only for Home Page */
+#home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(10, 9, 9, 0.947);
+}
+
+/* Transparent Background Image for Home Page */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/Main page.png') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    opacity: 1; /* no transparency*/
+    z-index: -1; /* Keep it behind content */
+    /* Add an overlay to reduce transparency */
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust transparency: 0 = fully transparent, 1 = fully opaque */
+}
+
+/* Ensure Text Stays White */
+#home h1, 
+#home p, 
+#home nav ul li a {
+    color: rgb(24, 23, 23) !important;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8); /* Soft shadow for contrast */
+}
+
+/* Heading Animation */
+#home h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: fadeInDown 1.5s ease-in-out;
+}
+.home-title, .home-subtitle {
+    /*font styles*/
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.923);
+}
+
+/* Subtext Animation */
+#home p {
+    font-size: 1.5rem;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Navigation */
+/* Navigation Bar Styling */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Navigation Links */
+nav ul li a {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    padding: 10px 15px;
+}
+
+/* Hover Effect: Highlighting the Selected Item */
+nav ul li a:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+/* Underline Animation */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: #FFD700; /* Gold color */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Active State (When Section is Clicked) */
+nav ul li a.active {
+    color: #FFD700; /* Highlight selected */
+    font-weight: bold;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Certifications Section */
+#certifications {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#certifications h1 {
+    color: #0073e6;
+    font-size: 2.5rem;
+}
+
+#certifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+#certifications ul li {
+    background: #e0e0e0;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 60%;
+    transition: transform 0.3s;
+}
+
+#certifications ul li:hover {
+    transform: scale(1.05);
+    background: #d4edda;
+}
+/* Internships Section */
+#internships {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#internships h1 {
+    color: #0073e6;
+    font-size: 2.5rem;
+}
+
+/* Internship Cards */
+.internship-card {
+    background: #e0e0e0;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.internship-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.internship-card h2 {
+    margin: 15px 0;
+    color: #0073e6;
+}
+
+.internship-card:hover {
+    transform: scale(1.05);
+    background: #d4edda;
+}
+/* About Me Page */
+#about {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about h1 {
+    color: #0073e6;
+    font-size: 2.5rem;
+}
+
+#about img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+#about ul {
+    list-style: none;
+    padding: 0;
+}
+
+#about ul li {
+    background: #e0e0e0;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 60%;
+    transition: transform 0.3s;
+}
+
+#about ul li:hover {
+    transform: scale(1.05);
+    background: #d4edda;
+}
+/* Projects Section */
+#projects {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#projects h1 {
+    color: #0073e6;
+    font-size: 2.5rem;
+}
+
+/* Project Cards */
+.project-list {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: #ffffff;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    background: #e6f7ff;
+}
+
+.project-card h3 {
+    color: #0073e6;
+}
+
+/* Sections */
+section {
+    padding: 40px;
+    background: #ffffff;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: scale(1.03);
+    background: #f0f0f0;
+}
+
+h2 {
+    color: #0073e6;
+    border-bottom: 3px solid #0073e6;
+    padding-bottom: 5px;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Contact Form */
+.contact-form {
+    width: 50%;
+    padding: 20px;
+}
+
+.contact-form h2 {
+    color: #0073e6;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #0073e6;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact-form button:hover {
+    background: #005bb5;
+}
+
+/* Contact Info */
+.contact-info {
+    width: 40%;
+    padding: 20px;
+}
+
+.contact-info h2 {
+    color: #0073e6;
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: #005bb5;
+}
+/* Hide sections initially */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Show sections when scrolled into view */
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* === Toggle Button === */
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+/* Switch Button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+/* Hide Default Checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Default Light Mode */
+    transition: 0.4s;
+    border-radius: 25px;
+}
+
+/* Circle Inside Slider */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* When Switch is ON (Dark Mode) */
+input:checked + .slider {
+    background-color: #FFD700; /* Gold */
+}
+
+/* Move Circle Left for Dark Mode */
+input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+/* === Dark Mode Styles === */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Change text color in dark mode */
+.dark-mode h1, 
+.dark-mode p, 
+.dark-mode nav ul li a {
+    color: white;
+}
+
+/* Highlight active section */
+.dark-mode nav ul li a:hover {
+    color: #FFD700; /* Gold */
+}
+
+/* Dark Mode Background */
+.dark-mode #home {
+    background: rgba(0, 0, 0, 0.8); /* Dark transparent */
+}
+
+/* === Apply Dark Mode to All Pages === */
+.dark-mode {
+    background-color: #121212 !important; /* Dark Background */
+    color: white !important; /* White Text */
+}
+
+/* Ensure All Sections Stay White in Dark Mode */
+.dark-mode h1, 
+.dark-mode p, 
+.dark-mode nav ul li a {
+    color: white !important;
+}
+
+/* Make Links More Visible in Dark Mode */
+.dark-mode nav ul li a:hover {
+    color: #FFD700 !important; /* Gold Highlight */
+}
+
+/* Dark Mode Background for Sections */
+.dark-mode #home, 
+.dark-mode #about, 
+.dark-mode #projects, 
+.dark-mode #internships, 
+.dark-mode #certifications, 
+.dark-mode #contact {
+    background: rgba(0, 0, 0, 0.9) !important; /* Dark Transparent */
+}
+/* Default Light Mode Styles */
+#home h1, #home p, #home nav ul li a {
+    color: black; /* Light Mode Text */
+}
+
+/* Dark Mode Styles */
+.dark-mode #home h1, 
+.dark-mode #home p, 
+.dark-mode #home nav ul li a {
+    color: white !important; /* Ensure White Text in Dark Mode */
+}
+
